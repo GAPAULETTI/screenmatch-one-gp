@@ -91,6 +91,13 @@ public class Principal {
         DatosSerie datos = conversor.obtenerDatos(json, DatosSerie.class);
         return datos;
     }
+    private void buscarSerieWeb() {
+        DatosSerie datos = getDatosSerie();
+        Serie serie = new Serie(datos);
+        repositorio.save(serie);
+        //datosSeries.add(datos);
+        System.out.println(datos);
+    }
     private void buscarEpisodioPorSerie() {
         //DatosSerie datosSerie = getDatosSerie();
         mostrarSeriesBuscadas();
@@ -120,13 +127,7 @@ public class Principal {
         repositorio.save(serieEncontrada);
         }
     }
-    private void buscarSerieWeb() {
-        DatosSerie datos = getDatosSerie();
-        Serie serie = new Serie(datos);
-        repositorio.save(serie);
-        //datosSeries.add(datos);
-        System.out.println(datos);
-    }
+
 
     public void mostrarSeriesBuscadas(){
        /*List<Serie> series = new ArrayList<>();
